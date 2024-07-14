@@ -14,4 +14,9 @@ class SignInTest {
         int result  = sumOfTwo(1);
         assertThat(result).isEqualTo(2);
     }
+    @Test
+    public void testCanSignIn2(){
+        int result  = sumOfTwo(2);
+        assertThat(result).isEqualTo(3);
+    }
 }
