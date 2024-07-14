@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Проверяем исходный код из репозитория
-                git 'https://github.com/your-repo/your-app.git'
+                git 'https://github.com/Vitalyy10/DockerCheck.git'
             }
         }
 
