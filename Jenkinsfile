@@ -34,10 +34,10 @@ pipeline {
 //                         '''
 //                     } else {
 //                         echo 'Docker is already installed.'
-//                     }
-//                 }
-//             }
-//         }
+                    }
+                }
+            }
+        }
 
 
         stage('Checkout') {
