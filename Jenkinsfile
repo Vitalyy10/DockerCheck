@@ -36,7 +36,7 @@ pipeline {
             }
         }
 
-    stages {
+
         stage('Checkout') {
             steps {
                 // Проверяем исходный код из репозитория
@@ -96,4 +96,4 @@ pipeline {
         }
     }
 }
-}
+
