@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'agent1'}
+    agent any
 
     environment {
         DOCKER_IMAGE = 'my-app:latest'
@@ -51,6 +51,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
+                sh "apk add docker"
 //                 sh "rc-service docker restart"
                     // Сборка Docker образа
                     docker.build("${env.DOCKER_IMAGE}")
