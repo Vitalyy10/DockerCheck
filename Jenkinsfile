@@ -5,6 +5,7 @@ pipeline {
         DOCKER_IMAGE = 'my-app:latest'
         DOCKER_REGISTRY = 'my-docker-registry.com'
         DOCKER_CREDENTIALS_ID = 'docker-credentials-id'
+        DOCKER_BUILDKIT = '1'
     }
 
 
@@ -67,36 +68,36 @@ pipeline {
             }
         }
 
-        stage('Push') {
-            steps {
-                script {
-                    // Логинимся в Docker Registry
-                    docker.withRegistry("https://${env.DOCKER_REGISTRY}", "${env.DOCKER_CREDENTIALS_ID}") {
-                        // Пушим образ в Registry
-                        docker.image("${env.DOCKER_IMAGE}").push()
-                    }
-                }
-            }
-        }
+//         stage('Push') {
+//             steps {
+//                 script {
+//                     // Логинимся в Docker Registry
+//                     docker.withRegistry("https://${env.DOCKER_REGISTRY}", "${env.DOCKER_CREDENTIALS_ID}") {
+//                         // Пушим образ в Registry
+//                         docker.image("${env.DOCKER_IMAGE}").push()
+//                     }
+//                 }
+//             }
+//         }
 
-        stage('Deploy') {
-            steps {
-                script {
-                    // Развертывание приложения (например, с использованием Docker Compose)
-                    sh '''
-                        docker-compose down
-                        docker-compose up -d
-                    '''
-                }
-            }
-        }
-    }
+//         stage('Deploy') {
+//             steps {
+//                 script {
+//                     // Развертывание приложения (например, с использованием Docker Compose)
+//                     sh '''
+//                         docker-compose down
+//                         docker-compose up -d
+//                     '''
+//                 }
+//             }
+//         }
+//     }
 
-    post {
-        always {
-            // Удаление неиспользуемых образов для освобождения места
-            sh 'docker system prune -f'
-        }
-    }
+//     post {
+//         always {
+//             // Удаление неиспользуемых образов для освобождения места
+//             sh 'docker system prune -f'
+//         }
+//     }
 }
 
