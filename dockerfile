@@ -25,7 +25,7 @@ RUN mvn dependency:resolve
 RUN apt-get update && apt-get install -y unzip \
     && curl -sSL https://github.com/allure-framework/allure2/releases/download/2.13.8/allure-2.13.8.zip -o allure.zip \
     && unzip allure.zip -d /opt/ \
-    && ln -s /opt/allure-2.13.8/bin/allure /usr/bin/allure
+    && ln -s /opt/allure-2.18.1/bin/allure /usr/bin/allure
 
 
 # Скачиваем зависимости из .pom файла

@@ -48,16 +48,16 @@ pipeline {
             }
         }
 
-//         stage('Build') {
-//             steps {
-//                 script {
-//
-// //                 sh "rc-service docker restart"
-//                     // Сборка Docker образа
-//                     docker.build("${env.DOCKER_IMAGE}")
-//                 }
-//             }
-//         }
+        stage('Build') {
+            steps {
+                script {
+
+//                 sh "rc-service docker restart"
+                    // Сборка Docker образа
+                    docker.build("${env.DOCKER_IMAGE}")
+                }
+            }
+        }
 
 //         stage('Test') {
 //             steps {
