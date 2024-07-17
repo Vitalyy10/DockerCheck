@@ -75,7 +75,16 @@ pipeline {
 
 //         sh 'mvn dependency:resolve'
         sh 'scripts/RunTest.sh'}}
-
+        stage('Generate Alllure'){
+        post{
+             always {
+             allure includeProperties:
+             false,
+             jdk: '',
+             results: [[path: 'target/allure-results']]
+                            }
+                        }
+                        }
     }
 
 
