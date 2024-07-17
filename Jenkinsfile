@@ -48,58 +48,33 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                script {
-                sh "apk add docker"
-//                 sh "rc-service docker restart"
-                    // Сборка Docker образа
-                    docker.build("${env.DOCKER_IMAGE}")
-                }
-            }
-        }
-
-        stage('Test') {
-            steps {
-                script {
-                    // Запуск тестов внутри контейнера
-                    docker.image("${env.DOCKER_IMAGE}").inside {
-                        sh 'make test'
-                    }
-                }
-            }
-        }
-
-//         stage('Push') {
+//         stage('Build') {
 //             steps {
 //                 script {
-//                     // Логинимся в Docker Registry
-//                     docker.withRegistry("https://${env.DOCKER_REGISTRY}", "${env.DOCKER_CREDENTIALS_ID}") {
-//                         // Пушим образ в Registry
-//                         docker.image("${env.DOCKER_IMAGE}").push()
+//
+// //                 sh "rc-service docker restart"
+//                     // Сборка Docker образа
+//                     docker.build("${env.DOCKER_IMAGE}")
+//                 }
+//             }
+//         }
+
+//         stage('Test') {
+//             steps {
+//                 script {
+//                     // Запуск тестов внутри контейнера
+//                     docker.image("${env.DOCKER_IMAGE}").inside {
+//                         sh 'make test'
 //                     }
 //                 }
 //             }
 //         }
+        stage('RunTests'){
+        steps{
+        sh 'scripts/RunTest.sh'}}
 
-//         stage('Deploy') {
-//             steps {
-//                 script {
-//                     // Развертывание приложения (например, с использованием Docker Compose)
-//                     sh '''
-//                         docker-compose down
-//                         docker-compose up -d
-//                     '''
-//                 }
-//             }
-//         }
     }
 
-//     post {
-//         always {
-//             // Удаление неиспользуемых образов для освобождения места
-//             sh 'docker system prune -f'
-//         }
-//     }
+
 }
 
