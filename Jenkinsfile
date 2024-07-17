@@ -71,6 +71,7 @@ pipeline {
 //         }
         stage('RunTests'){
         steps{
+        sh 'chmod +x scripts/RunTest.sh'
 
 //         sh 'mvn dependency:resolve'
         sh 'scripts/RunTest.sh'}}
