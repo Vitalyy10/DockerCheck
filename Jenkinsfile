@@ -72,6 +72,8 @@ pipeline {
         stage('RunTests'){
         steps{
         sh 'chmod +x scripts/RunTest.sh'
+        sh 'apt-get update && apt-get install -y maven'
+        sh 'mvn dependency:resolve'
         sh 'scripts/RunTest.sh'}}
 
     }
