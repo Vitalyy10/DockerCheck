@@ -71,7 +71,7 @@ pipeline {
 //         }
         stage('RunTests'){
         steps{
-        sh 'scripts/RunTest.sh'}}
+        sh 'sudo scripts/RunTest.sh'}}
 
     }
 
