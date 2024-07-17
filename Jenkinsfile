@@ -71,6 +71,7 @@ pipeline {
 //         }
         stage('RunTests'){
         steps{
+        sh 'chmod +x scripts/RunTest.sh'
         sh 'sudo scripts/RunTest.sh'}}
 
     }
