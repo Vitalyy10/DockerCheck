@@ -104,7 +104,7 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/Vitalyy10/DockerCheck.git'
-                sh 'scripts/RunTest.sh''
+                sh 'scripts/RunTest.sh'
             }
             post {
                 always {
