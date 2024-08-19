@@ -99,7 +99,9 @@
 
 pipeline {
     agent any
-
+        tools {
+            maven 'Maven_J' // Имя, которое вы дали Maven в конфигурации Jenkins
+        }
     stages {
         stage('Build') {
             steps {
