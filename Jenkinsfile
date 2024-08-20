@@ -120,7 +120,7 @@ pipeline {
                         echo 'Pipeline is complete'
                         emailext (
                         subject: "CMXQA.TESTS Отчет прогона тесто",
-                        body:"""Подробный allure-отчет: """
+                        body:"""Подробный allure-отчет: """,
                         to: "Shevchukovv12@mail.ru"
                         )
                     }
