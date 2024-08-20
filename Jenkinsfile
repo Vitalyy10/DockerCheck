@@ -121,7 +121,7 @@ pipeline {
                         emailext (
                         subject: "CMXQA.TESTS Отчет прогона тесто",
                         body:"""Подробный allure-отчет: """,
-                        to: "Shevchukovv12@mail.ru"
+                        to: ""
                         )
                     }
 
