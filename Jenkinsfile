@@ -115,8 +115,8 @@ pipeline {
                      false,
                      jdk: '',
                      results: [[path: 'target/allure-results']]
-                }
-                    always{
+
+
                         echo 'Pipeline is complete'
                         emailext (
                         subject: "CMXQA.TESTS Отчет прогона тесто",
