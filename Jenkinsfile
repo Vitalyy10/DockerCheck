@@ -116,17 +116,25 @@ pipeline {
                      jdk: '',
                      results: [[path: 'target/allure-results']]
                 }
-            }
-             post {
                     always{
                         echo 'Pipeline is complete'
                         emailext (
-                        subject: "CMXQA.TESTS Отчет прогона тестов  ",
-                        body:"""Подробный allure-отчет: """,
-                        to: "Shevchukovv12@mail.ru"
+                        subject: "CMXQA.TESTS Отчет прогона тесто",
+                        body:"""Подробный allure-отчет: "",
+                        to: "${env.mailRecipients}"
                         )
                     }
-                }
+
+            }
+
+
+
+
+
+
+
+
+
         }
     }
 }
